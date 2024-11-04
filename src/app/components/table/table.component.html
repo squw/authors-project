@@ -5,6 +5,7 @@
         <thead class="table-dark">
             <tr>
                 <th>Author</th>
+                <th>ID</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,9 @@
                         <a [routerLink]="['/author', author.au_id]" routerLinkActive="active" ariaCurrentWhenActive="page">
                             {{ author.au_fname }} {{ author.au_lname }}
                         </a>
+                    </td>
+                    <td>
+                        {{ author.au_id }}
                     </td>
                 </tr>
             }
