@@ -12,7 +12,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './author-details.component.css'
 })
 export class AuthorDetailsComponent implements OnInit {
+
+
   authorId: string | null = null
+
   auth_data: Author = {
     au_id: '',
     au_lname: '',
@@ -26,6 +29,7 @@ export class AuthorDetailsComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute) {}
+  
   http = inject(HttpClient)
 
 
