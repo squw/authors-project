@@ -1,4 +1,4 @@
-export interface AIPResponseModel {
+export interface APIResponseModel {
     Message: string;
     Result: boolean;
     Data: Author[];

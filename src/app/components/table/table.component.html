@@ -1,1 +1,23 @@
-<p>table works!</p>
+<div class="container">
+
+    
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (author of authorsList; track $index) {
+                <tr>
+                    <td>
+                        <a [routerLink]="['/author', author.au_id]" routerLinkActive="active" ariaCurrentWhenActive="page">
+                            {{ author.au_fname }} {{ author.au_lname }}
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        
+</div>

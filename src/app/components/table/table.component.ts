@@ -1,33 +1,26 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { AIPResponseModel, Author } from '../../model/interface/authors';
+import { APIResponseModel, Author } from '../../model/interface/authors';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [],
+  imports: [HttpClientModule, RouterModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
 export class TableComponent implements OnInit {
-  authorList: Author[] = []
+  http = inject(HttpClient)
+  authorsList: Author[] = []
 
   ngOnInit(): void {
-    this.apiService.getAuthors().subscribe(
-      (result: AIPResponseModel) => {
-        if (result.Result) {  // Check if the response was successful
-          this.authorList = result.Data;
-        } else {
-          alert('Failed to retrieve data');
-        }
-      },
-      (error) => {
-        alert('API error / Network Down');
-        console.error('API Error:', error);
-      }
-    );
+    this.getAllAuthors()
   }
 
-  apiService = inject(ApiService)
-
+  getAllAuthors() {
+    this.http.get<APIResponseModel>("author_table_display").subscribe((res: APIResponseModel) => {
+      this.authorsList = res.Data
+    })
+  }
 }
