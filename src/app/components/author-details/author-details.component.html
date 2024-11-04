@@ -82,7 +82,7 @@
             <h5>Contract</h5>
         </div>
         <div class="col-sm-8">
-            <select [(ngModel)]="auth_data.contract" (change)="onStatusChange()">
+            <select [(ngModel)]="auth_data.contract" (change)="onStatusChange()" class="form-select">
                 <option [ngValue]="true">True</option>
                 <option [ngValue]="false">False</option>
             </select>
@@ -91,7 +91,7 @@
 
     <div class="row">
         <div class="col">
-            <button (click)="discardChanges()" class="btn btn-primary">Discard Changes</button>
+            <button (click)="discardChanges()" class="btn btn-secondary">Discard Changes</button>
         </div>
     </div>
 </div>
