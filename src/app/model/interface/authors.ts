@@ -4,6 +4,12 @@ export interface APIResponseModel {
     Data: Author[];
 }
 
+export interface APIResponseModelSingular {
+    Message: string;
+    Result: boolean;
+    Data: Author;
+}
+
 
 export interface Author {
     au_id: string;
