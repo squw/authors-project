@@ -55,4 +55,10 @@ export class AuthorDetailsComponent implements OnInit {
   discardChanges(): void {
     this.getAuthDetail();
   }
+
+  saveChanges(): void {
+    if(this.authorId) {
+      this.http.put<APIResponseModelSingular>(`author/${this.authorId}/update`, this.auth_data).subscribe()
+    }
+  }
 }
