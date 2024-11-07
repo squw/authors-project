@@ -12,7 +12,8 @@
             @for (author of authorsList; track $index) {
                 <tr>
                     <td>
-                        <a [routerLink]="['/author', author.au_id]" routerLinkActive="active" ariaCurrentWhenActive="page">
+                        <!-- <a [routerLink]="['/author', author.au_id]" routerLinkActive="active" ariaCurrentWhenActive="page"> -->
+                        <a [routerLink]="[author.au_id]">
                             {{ author.au_fname }} {{ author.au_lname }}
                         </a>
                     </td>
@@ -23,5 +24,9 @@
             }
         </tbody>
     </table>
+
+    <div class="col-2">
+        <button [routerLink]="['/create-author']" class="btn btn-primary">Create Author</button>
+    </div>
         
 </div>

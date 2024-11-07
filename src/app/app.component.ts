@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   title = 'authors-project';
-  isAuthorDetailsPage = false;
+  isRootRoute = false;
 
   constructor(private router: Router) {}
 
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         // Check if the current route is the author details page
-        this.isAuthorDetailsPage = event.urlAfterRedirects.startsWith('/author/');
+        this.isRootRoute = event.urlAfterRedirects === '/'
       });
   }
 }

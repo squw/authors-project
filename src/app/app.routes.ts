@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { AuthorDetailsComponent } from './components/author-details/author-details.component';
+import { CreateAuthorComponent } from './components/create-author/create-author.component';
 
 export const routes: Routes = [
-    { path: 'author/:id', component: AuthorDetailsComponent }
+    { path: 'create-author', component: CreateAuthorComponent },
+    { path: ':id', component: AuthorDetailsComponent }
+    
 ];

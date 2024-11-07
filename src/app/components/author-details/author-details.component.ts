@@ -55,6 +55,8 @@ export class AuthorDetailsComponent implements OnInit {
 
   discardChanges(): void {
     this.getAuthDetail();
+    // for empty set of authorForm
+    //this.authorForm.reset();
   }
 
   saveChanges(): void {
