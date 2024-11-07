@@ -1,6 +1,6 @@
 <div class="container-fluid p-5 bg-dark text-white">
     <h1>
-        Author Details: {{ auth_data.au_fname }} {{ auth_data.au_lname }}
+        Author Details: {{ authorForm.get('au_fname')?.value }} {{ authorForm.get('au_lname')?.value }}
     </h1>
 </div>
 

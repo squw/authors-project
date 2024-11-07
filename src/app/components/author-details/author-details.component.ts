@@ -18,17 +18,6 @@ export class AuthorDetailsComponent implements OnInit {
 
   authorId: string | null = null
 
-  auth_data: Author = {
-    au_id: '',
-    au_lname: '',
-    au_fname: '',
-    phone: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
-    contract: false
-  };
 
   authorForm: FormGroup;
 
@@ -59,8 +48,7 @@ export class AuthorDetailsComponent implements OnInit {
 
   getAuthDetail(): void {
     this.http.get<APIResponseModelSingular>(`author/${this.authorId}`).subscribe((res: APIResponseModelSingular) => {
-      this.auth_data = res.Data
-      this.authorForm.patchValue(this.auth_data);
+      this.authorForm.patchValue(res.Data);
     })
   }
 
@@ -70,15 +58,15 @@ export class AuthorDetailsComponent implements OnInit {
   }
 
   saveChanges(): void {
-    if(this.authorId && this.authorForm.valid) {
-      this.http.put<APIResponseModelSingular>(`author/${this.authorId}/update`, this.auth_data).subscribe({
+    if (this.authorId && this.authorForm.valid) {
+      this.http.put<APIResponseModelSingular>(`author/${this.authorId}/update`, this.authorForm.value).subscribe({
         error: (error) => {
           console.error('Error saving data:', error);
         }
-      })
+      });
     } else {
-      console.log("Form is invalid")
-      this.authorForm.markAllAsTouched()
+      console.log("Form is invalid");
+      this.authorForm.markAllAsTouched();
     }
   }
 }
