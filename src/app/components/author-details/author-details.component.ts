@@ -21,6 +21,8 @@ export class AuthorDetailsComponent implements OnInit {
 
   authorForm: FormGroup;
 
+  modSuccess: boolean | null = null;
+
   constructor(private route: ActivatedRoute, private fb: FormBuilder) {
     this.authorForm = this.fb.group({
       au_id: ['', [Validators.required, Validators.pattern(/^\d{3}-\d{2}-\d{4}$/)]],  // e.g. "172-32-1176"
@@ -62,8 +64,12 @@ export class AuthorDetailsComponent implements OnInit {
   saveChanges(): void {
     if (this.authorId && this.authorForm.valid) {
       this.http.put<APIResponseModelSingular>(`author/${this.authorId}/update`, this.authorForm.value).subscribe({
+        next: (response) => {
+          this.modSuccess = true;
+        },
         error: (error) => {
           console.error('Error saving data:', error);
+          this.modSuccess = false;
         }
       });
     } else {

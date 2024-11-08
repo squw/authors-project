@@ -22,3 +22,9 @@ export interface Author {
     zip: string;
     contract: boolean;
 }
+
+export interface APIResponseModelDupID {
+    Message: string;
+    Result: boolean;
+    Exists: boolean;
+}

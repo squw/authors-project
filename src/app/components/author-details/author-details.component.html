@@ -163,4 +163,12 @@
     <div class="col-2">
         <button (click)="saveChanges()" [disabled]="!authorForm.valid" class="btn btn-primary">Save Changes</button>
     </div>
+    <div class="col-10">
+        <small *ngIf="modSuccess === true" class="text-success">
+            Changes saved successfully!
+        </small>
+        <small *ngIf="modSuccess === false" class="text-danger">
+            Failed saving changes.
+        </small>
+    </div>
 </div>
