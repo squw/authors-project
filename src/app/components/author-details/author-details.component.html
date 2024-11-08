@@ -11,7 +11,7 @@
                 <h5>ID: </h5>
             </div>
             <div class="col-sm-8">
-                <input type="text" formControlName="au_id" class="form-control" />
+                <input type="text" formControlName="au_id" class="form-control" readonly/>
                 <div *ngIf="authorForm.get('au_id')?.invalid && authorForm.get('au_id')?.touched" class="text-danger">
                     <small *ngIf="authorForm.get('au_id')?.errors?.['required']">
                         ID Required
