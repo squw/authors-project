@@ -17,9 +17,9 @@
                             {{ author.au_fname }} {{ author.au_lname }}
                         </a>
                     </td>
-                    <td>
-                        <button mat-raised-button (click)="openDeleteDialog(author.au_id, '300ms', '150ms')">
-                            Delete {{ author.au_id }}
+                    <td class="text-end">
+                        <button mat-flat-button (click)="openDeleteDialog(author, '300ms', '150ms')">
+                            Delete Entry
                         </button>
                     </td>
                 </tr>

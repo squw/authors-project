@@ -28,24 +28,25 @@ export class TableComponent implements OnInit {
     })
   }
 
-  deleteAuthor(id: string): void {
-    this.http.delete(`author/delete/${id}`).subscribe({
+  deleteAuthor(auth_info: Author): void {
+    this.http.delete(`author/delete/${auth_info.au_id}`).subscribe({
       next: () => {
         this.getAllAuthors()
       },
-      error: err => console.error(`Error trying to delete author ${id}`, err)
+      error: err => console.error(`Error trying to delete author ${auth_info.au_fname} ${auth_info.au_fname}`, err)
     });
   }
 
-  openDeleteDialog(id: string, enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openDeleteDialog(auth_info: Author, enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(DeleteDialogComponent, {
-      width: '250px',
+      maxWidth: '80vw',
+      width: 'auto',
       enterAnimationDuration,
       exitAnimationDuration,
-      data: id
+      data: auth_info
     }).afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
-        this.deleteAuthor(id);
+        this.deleteAuthor(auth_info);
       }
     })
   }

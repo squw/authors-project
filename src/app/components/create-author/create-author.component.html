@@ -122,8 +122,8 @@
             <div class="col-sm-8">
                 <input type="text" formControlName="state" class="form-control" />
                 <div *ngIf="authorForm.get('state')?.invalid && authorForm.get('state')?.touched" class="text-danger">
-                    <small *ngIf="authorForm.get('state')?.errors?.['maxlength']">
-                        Max Length Exceeded
+                    <small>
+                        Invalid Pattern (e.g. ON)
                     </small>
                 </div>
             </div>

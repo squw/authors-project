@@ -1,6 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { Author } from '../../model/interface/authors';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -11,5 +12,5 @@ import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, Ma
 })
 export class DeleteDialogComponent {
   constructor(public dialogRef: MatDialogRef<DeleteDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: string) {}
+              @Inject(MAT_DIALOG_DATA) public author: Author) {}
 }
