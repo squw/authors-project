@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [HttpClientModule, RouterModule, MatButtonModule],
+  imports: [HttpClientModule, RouterModule, MatButtonModule, MatIconModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
