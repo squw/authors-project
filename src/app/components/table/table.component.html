@@ -5,7 +5,7 @@
         <thead class="table-dark">
             <tr>
                 <th>Author</th>
-                <th>ID</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,9 @@
                         </a>
                     </td>
                     <td>
-                        {{ author.au_id }}
+                        <button mat-raised-button (click)="openDeleteDialog(author.au_id, '300ms', '150ms')">
+                            Delete {{ author.au_id }}
+                        </button>
                     </td>
                 </tr>
             }

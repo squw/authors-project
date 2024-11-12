@@ -33,7 +33,7 @@ export class CreateAuthorComponent {
     });
   }
 
-  http = inject(HttpClient)
+  readonly http = inject(HttpClient)
 
 
   insertAuthorDetail(): void {

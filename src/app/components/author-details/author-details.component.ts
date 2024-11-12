@@ -37,7 +37,7 @@ export class AuthorDetailsComponent implements OnInit {
     });
   }
   
-  http = inject(HttpClient)
+  readonly http = inject(HttpClient)
 
 
   ngOnInit(): void {
