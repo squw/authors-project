@@ -5,11 +5,12 @@ import { APIResponseModelSingular, Author } from '../../model/interface/authors'
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { noInvalidPatterns } from '../../shared/validators/special-pattern-validator';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-author-details',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, CommonModule],
+  imports: [HttpClientModule, ReactiveFormsModule, CommonModule, MatButtonModule],
   templateUrl: './author-details.component.html',
   styleUrl: './author-details.component.css'
 })
