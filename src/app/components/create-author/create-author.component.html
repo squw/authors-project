@@ -161,7 +161,10 @@
 
 <div class="row p-5">
     <div class="col-3">
-        <button (click)="insertAuthorDetail()" [disabled]="!authorForm.valid" class="btn btn-primary">Populate Changes</button>
+        <!-- <button (click)="insertAuthorDetail()" [disabled]="!authorForm.valid" class="btn btn-primary">Populate Changes</button> -->
+        <button mat-raised-button color="primary" (click)="insertAuthorDetail()" [disabled]="!authorForm.valid">
+            Populate Changes
+        </button>
     </div>
     <div class="col-10">
         <small *ngIf="creationSuccess === true" class="text-success">
