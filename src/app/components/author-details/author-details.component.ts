@@ -6,11 +6,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { noInvalidPatterns } from '../../shared/validators/special-pattern-validator';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-author-details',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, CommonModule, MatButtonModule],
+  imports: [HttpClientModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatToolbarModule],
   templateUrl: './author-details.component.html',
   styleUrl: './author-details.component.css'
 })

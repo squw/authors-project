@@ -1,4 +1,8 @@
 mat-toolbar {
-    background-color: #c9c9c9 !important; /* Set to a deeper grey */
+    background-color: #c9c9c9 !important;
 }
+.large-toolbar {
+    height: 80px;
+    font-size: 1.5rem;
+  }
   

@@ -7,11 +7,12 @@ import { catchError, debounceTime, map, of, switchMap } from 'rxjs';
 import { APIResponseModelDupID } from '../../model/interface/authors';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-create-author',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, CommonModule, MatButtonModule],
+  imports: [HttpClientModule, ReactiveFormsModule, CommonModule, MatButtonModule, MatToolbarModule],
   templateUrl: './create-author.component.html',
   styleUrl: './create-author.component.css'
 })

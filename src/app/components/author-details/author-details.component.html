@@ -1,8 +1,8 @@
-<div class="container-fluid p-5 bg-dark text-white">
-    <h1>
+<mat-toolbar color="primary" class="p-3">
+    <span class="text-black">
         Author Details: {{ authorForm.get('au_fname')?.value }} {{ authorForm.get('au_lname')?.value }}
-    </h1>
-</div>
+    </span>
+</mat-toolbar>
 
 <form [formGroup]="authorForm" (ngSubmit)="saveChanges()">
     <div class="container-md p-3">

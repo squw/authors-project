@@ -8,8 +8,8 @@ export const routes: Routes = [
         path: 'author',
         children: [
             { path: '', component: AuthorTableComponent },
-            { path: ':id', component: AuthorDetailsComponent },
-            { path: 'create-author', component: CreateAuthorComponent }
+            { path: 'create-author', component: CreateAuthorComponent },
+            { path: ':id', component: AuthorDetailsComponent }
         ]
     }
 ];
