@@ -1,1 +1,22 @@
+<mat-toolbar color="primary">
+    <span class="me-auto">
+        <a [routerLink]="['/']" class="text-black" style="text-decoration: none;">
+            SQL Server Table Management
+        </a>
+    </span>
+    <button mat-button color="accent" *ngIf="isAuthorPage()" [routerLink]="['/author']">
+        Author Table
+    </button>
+    <button mat-button *ngIf="!isAuthorPage()" [routerLink]="['/author']">
+        Author Table
+    </button>
+  
+    <button mat-button color="accent" *ngIf="isTitlePage()" [routerLink]="['/title']">
+        Book Table
+    </button>
+    <button mat-button *ngIf="!isTitlePage()" [routerLink]="['/title']">
+        Book Table
+    </button>  
+</mat-toolbar>
+
 <router-outlet></router-outlet>

@@ -4,17 +4,19 @@ import { APIResponseModel, Author } from '../../model/interface/authors';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { DeleteAuthorDialogComponent } from '../delete-author-dialog/delete-author-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [HttpClientModule, RouterModule, MatButtonModule, MatIconModule],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.css'
+  imports: [HttpClientModule, RouterModule, MatButtonModule, MatIconModule, MatToolbarModule, MatTableModule],
+  templateUrl: './author-table.component.html',
+  styleUrl: './author-table.component.css'
 })
-export class TableComponent implements OnInit {
+export class AuthorTableComponent implements OnInit {
   readonly http = inject(HttpClient)
   readonly dialog = inject(MatDialog);
   authorsList: Author[] = []
@@ -39,7 +41,7 @@ export class TableComponent implements OnInit {
   }
 
   openDeleteDialog(auth_info: Author, enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DeleteDialogComponent, {
+    this.dialog.open(DeleteAuthorDialogComponent, {
       maxWidth: '80vw',
       width: 'auto',
       enterAnimationDuration,

@@ -7,10 +7,10 @@ import { Author } from '../../model/interface/authors';
   selector: 'app-delete-dialog',
   standalone: true,
   imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
-  templateUrl: './delete-dialog.component.html',
-  styleUrl: './delete-dialog.component.css'
+  templateUrl: './delete-author-dialog.component.html',
+  styleUrl: './delete-author-dialog.component.css'
 })
-export class DeleteDialogComponent {
-  constructor(public dialogRef: MatDialogRef<DeleteDialogComponent>,
+export class DeleteAuthorDialogComponent {
+  constructor(public dialogRef: MatDialogRef<DeleteAuthorDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public author: Author) {}
 }
