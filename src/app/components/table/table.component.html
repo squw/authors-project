@@ -1,7 +1,11 @@
-<div class="container-md p-3">
+<div class="container-fluid p-5 bg-dark text-white">
+    <h1>SQL Server Table Management: Authors</h1>
+</div>
+
+<div class="container-md p-3 rounded-3 shadow-sm border">
 
     
-    <table class="table table-hover">
+    <table class="table table-hover rounded-3 overflow-hidden">
         <thead class="table-dark">
             <tr>
                 <th>Author</th>
@@ -18,7 +22,7 @@
                         </a>
                     </td>
                     <td class="text-end">
-                        <button mat-flat-button (click)="openDeleteDialog(author, '300ms', '150ms')">
+                        <button mat-flat-button color="warn" (click)="openDeleteDialog(author, '300ms', '150ms')">
                             Delete Entry
                         </button>
                     </td>
@@ -27,8 +31,15 @@
         </tbody>
     </table>
 
-    <div class="col-2">
+    <!-- <div class="col-2">
         <button [routerLink]="['/create-author']" class="btn btn-primary">Create Author</button>
+    </div> -->
+
+    <div class="col-2">
+        <button mat-fab extended color="primary" [routerLink]="['/create-author']">
+          <mat-icon>add</mat-icon>
+          Create Author
+        </button>
     </div>
         
 </div>

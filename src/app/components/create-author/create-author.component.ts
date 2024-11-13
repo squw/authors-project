@@ -6,11 +6,12 @@ import { noInvalidPatterns } from '../../shared/validators/special-pattern-valid
 import { catchError, debounceTime, map, of, switchMap } from 'rxjs';
 import { APIResponseModelDupID } from '../../model/interface/authors';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-create-author',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, CommonModule],
+  imports: [HttpClientModule, ReactiveFormsModule, CommonModule, MatButtonModule],
   templateUrl: './create-author.component.html',
   styleUrl: './create-author.component.css'
 })

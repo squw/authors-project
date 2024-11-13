@@ -158,10 +158,16 @@
 
 <div class="row p-5">
     <div class="col-2">
-        <button (click)="discardChanges()" class="btn btn-secondary">Discard Changes</button>
+        <!-- <button (click)="discardChanges()" class="btn btn-secondary">Discard Changes</button> -->
+        <button mat-button (click)="discardChanges()" color="warn">
+            Discard Changes
+        </button>
     </div>
     <div class="col-2">
-        <button (click)="saveChanges()" [disabled]="!authorForm.valid" class="btn btn-primary">Save Changes</button>
+        <!-- <button (click)="saveChanges()" [disabled]="!authorForm.valid" class="btn btn-primary">Save Changes</button> -->
+        <button mat-raised-button (click)="saveChanges()" color="primary" [disabled]="!authorForm.valid">
+            Save Changes
+        </button>
     </div>
     <div class="col-10">
         <small *ngIf="modSuccess === true" class="text-success">
