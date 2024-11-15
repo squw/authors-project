@@ -1,10 +1,10 @@
 {
-    "/author_table_display": {
+    "/author": {
         "target": "http://localhost:8080",
         "secure": false,
         "changeOrigin": true
     },
-    "/author": {
+    "/title": {
         "target": "http://localhost:8080",
         "secure": false,
         "changeOrigin": true

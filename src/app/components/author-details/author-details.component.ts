@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { APIResponseModelSingular, Author } from '../../model/interface/authors';
+import { AuthorResponseModelSingular, Author } from '../../model/interface/authors';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { noInvalidPatterns } from '../../shared/validators/special-pattern-validator';
@@ -38,7 +38,7 @@ export class AuthorDetailsComponent implements OnInit {
       contract: [false, Validators.required]
     });
   }
-  
+
   readonly http = inject(HttpClient)
 
 
@@ -51,7 +51,7 @@ export class AuthorDetailsComponent implements OnInit {
 
 
   getAuthDetail(): void {
-    this.http.get<APIResponseModelSingular>(`author/${this.authorId}`).subscribe((res: APIResponseModelSingular) => {
+    this.http.get<AuthorResponseModelSingular>(`author/${this.authorId}`).subscribe((res: AuthorResponseModelSingular) => {
       this.authorForm.patchValue(res.Data);
     })
   }
@@ -65,7 +65,7 @@ export class AuthorDetailsComponent implements OnInit {
 
   saveChanges(): void {
     if (this.authorId && this.authorForm.valid) {
-      this.http.put<APIResponseModelSingular>(`author/${this.authorId}/update`, this.authorForm.value).subscribe({
+      this.http.put<AuthorResponseModelSingular>(`author/${this.authorId}/update`, this.authorForm.value).subscribe({
         next: (response) => {
           this.modSuccess = true;
         },

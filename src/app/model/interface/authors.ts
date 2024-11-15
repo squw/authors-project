@@ -1,10 +1,10 @@
-export interface APIResponseModel {
+export interface AuthorResponseModel {
     Message: string;
     Result: boolean;
     Data: Author[];
 }
 
-export interface APIResponseModelSingular {
+export interface AuthorResponseModelSingular {
     Message: string;
     Result: boolean;
     Data: Author;
@@ -23,7 +23,7 @@ export interface Author {
     contract: boolean;
 }
 
-export interface APIResponseModelDupID {
+export interface AuthorResponseModelBool {
     Message: string;
     Result: boolean;
     Exists: boolean;

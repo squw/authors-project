@@ -4,7 +4,7 @@ import { AsyncValidatorFn, FormBuilder, FormGroup, ReactiveFormsModule, Validato
 import { ActivatedRoute } from '@angular/router';
 import { noInvalidPatterns } from '../../shared/validators/special-pattern-validator';
 import { catchError, debounceTime, map, of, switchMap } from 'rxjs';
-import { APIResponseModelDupID } from '../../model/interface/authors';
+import { AuthorResponseModelBool } from '../../model/interface/authors';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -40,7 +40,7 @@ export class CreateAuthorComponent {
 
   insertAuthorDetail(): void {
     if (this.authorForm.valid) {
-      this.http.post<APIResponseModelDupID>('/author/create', this.authorForm.value).subscribe({
+      this.http.post<AuthorResponseModelBool>('/author/create', this.authorForm.value).subscribe({
         next: (response) => {
           this.creationSuccess = true;
           this.authorForm.reset();
@@ -64,7 +64,7 @@ export class CreateAuthorComponent {
         debounceTime(300), // Avoid sending requests too often
 
         switchMap((id) =>
-          this.http.get<APIResponseModelDupID>(`/author/check-id/${id}`).pipe(
+          this.http.get<AuthorResponseModelBool>(`/author/check-id/${id}`).pipe(
             map((response) => {
               return response.Exists ? { duplicateId: true } : null;
             }),

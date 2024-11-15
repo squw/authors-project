@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { APIResponseModel, Author } from '../../model/interface/authors';
+import { AuthorResponseModel, Author } from '../../model/interface/authors';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
@@ -26,7 +26,7 @@ export class AuthorTableComponent implements OnInit {
   }
 
   getAllAuthors(): void {
-    this.http.get<APIResponseModel>("author_table_display").subscribe((res: APIResponseModel) => {
+    this.http.get<AuthorResponseModel>("author/table-display").subscribe((res: AuthorResponseModel) => {
       this.authorsList = res.Data
     })
   }
