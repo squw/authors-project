@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TitleAuthorComponent } from "../title-author/title-author.component";
 
 @Component({
   selector: 'app-title-details',
@@ -24,7 +25,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    TitleAuthorComponent
   ],
   templateUrl: './title-details.component.html',
   styleUrl: './title-details.component.css'

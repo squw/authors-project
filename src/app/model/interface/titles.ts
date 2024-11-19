@@ -10,6 +10,12 @@ export interface TitleResponseModelSingular {
     Data: BookTitleDetailed;
 }
 
+export interface TitleAuthorResponseModel {
+    Message: string;
+    Result: Boolean;
+    Data: TitleAuthor[];
+}
+
 export interface BookTitle {
     title_id: string;
     title: string;
@@ -36,4 +42,12 @@ export interface BookTitleDetailed {
     notes: string | null;
     pubdate: string | Date;
     sales_count: number;
+}
+
+export interface TitleAuthor {
+    au_id: string;
+    au_fname: string;
+    au_lname: string;
+    au_ord: number;
+    royaltyper: number;
 }
