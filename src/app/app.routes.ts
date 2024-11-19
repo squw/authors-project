@@ -3,6 +3,7 @@ import { AuthorDetailsComponent } from './components/author-details/author-detai
 import { CreateAuthorComponent } from './components/create-author/create-author.component';
 import { AuthorTableComponent } from './components/author-table/author-table.component';
 import { TitleTableComponent } from './components/title-table/title-table.component';
+import { TitleDetailsComponent } from './components/title-details/title-details.component';
 
 export const routes: Routes = [
     {
@@ -12,11 +13,12 @@ export const routes: Routes = [
             { path: 'create-author', component: CreateAuthorComponent },
             { path: ':id', component: AuthorDetailsComponent }
         ]
-    }, 
+    },
     {
         path: 'title',
         children: [
-            { path: '', component: TitleTableComponent }
+            { path: '', component: TitleTableComponent },
+            { path: ':id', component: TitleDetailsComponent }
         ]
     }
 ];

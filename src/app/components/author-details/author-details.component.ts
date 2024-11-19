@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthorResponseModelSingular, Author } from '../../model/interface/authors';
+import { AuthorResponseModelSingular } from '../../model/interface/authors';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { noInvalidPatterns } from '../../shared/validators/special-pattern-validator';

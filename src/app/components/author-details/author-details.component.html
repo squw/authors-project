@@ -11,7 +11,7 @@
                 <h5>ID: </h5>
             </div>
             <div class="col-sm-8">
-                <input type="text" formControlName="au_id" class="form-control" readonly/>
+                <input type="text" formControlName="au_id" class="form-control" readonly />
                 <div *ngIf="authorForm.get('au_id')?.invalid && authorForm.get('au_id')?.touched" class="text-danger">
                     <small *ngIf="authorForm.get('au_id')?.errors?.['required']">
                         ID Required
@@ -22,14 +22,15 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>Last Name:</h5>
             </div>
             <div class="col-sm-8">
                 <input type="text" formControlName="au_lname" class="form-control" />
-                <div *ngIf="authorForm.get('au_lname')?.invalid && authorForm.get('au_lname')?.touched" class="text-danger">
+                <div *ngIf="authorForm.get('au_lname')?.invalid && authorForm.get('au_lname')?.touched"
+                    class="text-danger">
                     <small *ngIf="authorForm.get('au_lname')?.errors?.['required']">
                         Last Name Required
                     </small>
@@ -42,14 +43,15 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>First Name:</h5>
             </div>
             <div class="col-sm-8">
                 <input type="text" formControlName="au_fname" class="form-control" />
-                <div *ngIf="authorForm.get('au_fname')?.invalid && authorForm.get('au_fname')?.touched" class="text-danger">
+                <div *ngIf="authorForm.get('au_fname')?.invalid && authorForm.get('au_fname')?.touched"
+                    class="text-danger">
                     <small *ngIf="authorForm.get('au_fname')?.errors?.['required']">
                         First Name Required
                     </small>
@@ -62,7 +64,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>Phone Number:</h5>
@@ -73,20 +75,21 @@
                     <small *ngIf="authorForm.get('phone')?.errors?.['pattern']">
                         Invalid Pattern (e.g. 666 666-6666)
                     </small>
-                    
+
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>Street Address:</h5>
             </div>
             <div class="col-sm-8">
                 <input type="text" formControlName="address" class="form-control" />
-                <div *ngIf="authorForm.get('address')?.invalid && authorForm.get('address')?.touched" class="text-danger">
+                <div *ngIf="authorForm.get('address')?.invalid && authorForm.get('address')?.touched"
+                    class="text-danger">
                     <small *ngIf="authorForm.get('address')?.hasError('noInvalidPatterns')">
-                        Invalid String Input
+                        Invalid String Input, please remove URLs and comment symbols
                     </small>
                     <small *ngIf="authorForm.get('address')?.errors?.['maxlength']">
                         Max Length Exceeded
@@ -94,7 +97,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>City:</h5>
@@ -103,7 +106,7 @@
                 <input type="text" formControlName="city" class="form-control" />
                 <div *ngIf="authorForm.get('city')?.invalid && authorForm.get('city')?.touched" class="text-danger">
                     <small *ngIf="authorForm.get('city')?.hasError('noInvalidPatterns')">
-                        Invalid String Input
+                        Invalid String Input, please remove URLs and comment symbols
                     </small>
                     <small *ngIf="authorForm.get('city')?.errors?.['maxlength']">
                         Max Length Exceeded
@@ -111,7 +114,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>State:</h5>
@@ -125,7 +128,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>Zip Code:</h5>
@@ -139,7 +142,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class="col-sm-4">
                 <h5>Contract</h5>
@@ -151,30 +154,29 @@
                 </select>
             </div>
         </div>
-    </div>    
+    </div>
+
+    <div class="row p-5">
+        <div class="col-2">
+            <button mat-button type="button" (click)="discardChanges()" color="warn">
+                Discard Changes
+            </button>
+        </div>
+        <div class="col-2">
+            <button mat-raised-button type="submit" color="primary" [disabled]="!authorForm.valid">
+                Save Changes
+            </button>
+        </div>
+
+        <div class="col-10">
+            <small *ngIf="modSuccess === true" class="text-success">
+                Changes saved successfully!
+            </small>
+            <small *ngIf="modSuccess === false" class="text-danger">
+                Failed saving changes.
+            </small>
+        </div>
+    </div>
+
+
 </form>
-
-
-
-<div class="row p-5">
-    <div class="col-2">
-        <!-- <button (click)="discardChanges()" class="btn btn-secondary">Discard Changes</button> -->
-        <button mat-button (click)="discardChanges()" color="warn">
-            Discard Changes
-        </button>
-    </div>
-    <div class="col-2">
-        <!-- <button (click)="saveChanges()" [disabled]="!authorForm.valid" class="btn btn-primary">Save Changes</button> -->
-        <button mat-raised-button (click)="saveChanges()" color="primary" [disabled]="!authorForm.valid">
-            Save Changes
-        </button>
-    </div>
-    <div class="col-10">
-        <small *ngIf="modSuccess === true" class="text-success">
-            Changes saved successfully!
-        </small>
-        <small *ngIf="modSuccess === false" class="text-danger">
-            Failed saving changes.
-        </small>
-    </div>
-</div>

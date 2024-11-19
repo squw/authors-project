@@ -1,0 +1,174 @@
+<mat-toolbar color="primary" class="p-3">
+    <span class="text-black">
+        Book Details: {{ titleForm.get('title')?.value }}
+    </span>
+</mat-toolbar>
+
+<form [formGroup]="titleForm">
+    <div class="container-md p-3">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>ID:</h5>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" formControlName="title_id" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Title:</h5>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" formControlName="title" class="form-control" />
+                <div *ngIf="titleForm.get('title')?.invalid && titleForm.get('title')?.touched" class="text-danger">
+                    <small *ngIf="titleForm.get('title')?.errors?.['required']">
+                        Book Title Required
+                    </small>
+                    <small *ngIf="titleForm.get('title')?.errors?.['maxlength']">
+                        Max Length Exceeded
+                    </small>
+                    <small *ngIf="titleForm.get('title')?.hasError('noInvalidPatterns')">
+                        Invalid String Input, please remove URLs and comment symbols
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Type:</h5>
+            </div>
+            <div class="col-sm-8">
+                <select formControlName="type" class="form-select">
+                    <option [ngValue]="'business'">Business</option>
+                    <option [ngValue]="'mod_cook'">Modern Cooking</option>
+                    <option [ngValue]="'popular_comp'">Popular Computing</option>
+                    <option [ngValue]="'psychology'">Psychology</option>
+                    <option [ngValue]="'trad_cook'">Traditional Cooking</option>
+                    <option [ngValue]="'UNDECIDED'">Other (undecided)</option>
+                </select>
+                <div *ngIf="titleForm.get('type')?.invalid && titleForm.get('type')?.touched" class="text-danger">
+                    <small *ngIf="titleForm.get('type')?.errors?.['required']">
+                        Book Type Required
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Publisher:</h5>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" formControlName="pub_name" class="form-control" />
+                <div *ngIf="titleForm.get('pub_name')?.invalid && titleForm.get('pub_name')?.touched"
+                    class="text-danger">
+                    <small *ngIf="titleForm.get('pub_name')?.errors?.['maxlength']">
+                        Max Length Exceeded
+                    </small>
+                    <small *ngIf="titleForm.get('pub_name')?.errors?.['noInvalidPatterns']">
+                        Invalid String Input, please remove URLs and comment symbols
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Price:</h5>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" formControlName="price" class="form-control" />
+                <div *ngIf="titleForm.get('price')?.invalid && titleForm.get('price')?.touched" class="text-danger">
+                    <small *ngIf="titleForm.get('price')?.errors?.['pattern']">
+                        Invalid Price Format (e.g., 19.99)
+                    </small>
+                    <small *ngIf="titleForm.get('price')?.errors?.['min']">
+                        Price Cannot Be Negative
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Advance:</h5>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" formControlName="advance" class="form-control" />
+                <div *ngIf="titleForm.get('advance')?.invalid && titleForm.get('advance')?.touched" class="text-danger">
+                    <small *ngIf="titleForm.get('advance')?.errors?.['pattern']">
+                        Invalid Advance Format (e.g., 1000.00)
+                    </small>
+                    <small *ngIf="titleForm.get('advance')?.errors?.['min']">
+                        Advance Cannot Be Negative
+                    </small>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- royalty field-->
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Royalty:</h5>
+            </div>
+            <div class="col-sm-8">
+                <!--  need royalty component  -->
+                <input type="text" formControlName="royalty" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Year-to-Date Sales:</h5>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" formControlName="ytd_sales" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Notes:</h5>
+            </div>
+            <div class="col-sm-8">
+                <textarea formControlName="notes" class="form-control" rows="3"></textarea>
+                <div *ngIf="titleForm.get('notes')?.invalid && titleForm.get('notes')?.touched" class="text-danger">
+                    <small *ngIf="titleForm.get('notes')?.errors?.['maxlength']">
+                        Max Length Exceeded
+                    </small>
+                    <small *ngIf="titleForm.get('notes')?.hasError('noInvalidPatterns')">
+                        Invalid String Input, please remove URLs and comment symbols
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Publication Date:</h5>
+            </div>
+            <div class="col-sm-8">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Publication Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="pubdate" />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="row p-5">
+        <div class="col-2">
+            <button mat-button type="button" (click)="discardChanges()" color="warn">
+                Discard Changes
+            </button>
+        </div>
+    </div>
+</form>
