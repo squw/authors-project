@@ -5,11 +5,19 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-title-author',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule
+  ],
   templateUrl: './title-author.component.html',
   styleUrl: './title-author.component.css'
 })
@@ -20,10 +28,10 @@ export class TitleAuthorComponent implements OnInit {
   titleAuthorsList: TitleAuthor[] = []
 
   ngOnInit(): void {
-    this.getAllAuthors()
+    this.getAllTitleAuthors();
   }
 
-  getAllAuthors(): void {
+  getAllTitleAuthors(): void {
 
     this.http.get<TitleAuthorResponseModel>(`title/${this.titleId}/author`).subscribe((res: TitleAuthorResponseModel) => {
       this.titleAuthorsList = res.Data
