@@ -40,7 +40,7 @@ export class CreateAuthorComponent {
 
   insertAuthorDetail(): void {
     if (this.authorForm.valid) {
-      this.http.post<AuthorResponseModelBool>('/author/create', this.authorForm.value).subscribe({
+      this.http.post('/author/create', this.authorForm.value).subscribe({
         next: (response) => {
           this.creationSuccess = true;
           this.authorForm.reset();

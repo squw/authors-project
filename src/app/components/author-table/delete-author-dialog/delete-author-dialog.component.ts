@@ -1,7 +1,7 @@
-import { Component, Inject, inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
-import { Author, AuthorResponseModelBool } from '../../model/interface/authors';
+import { Author, AuthorResponseModelBool } from '../../../model/interface/authors';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 

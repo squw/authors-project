@@ -4,7 +4,7 @@ import { AuthorResponseModel, Author } from '../../model/interface/authors';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteAuthorDialogComponent } from '../delete-author-dialog/delete-author-dialog.component';
+import { DeleteAuthorDialogComponent } from './delete-author-dialog/delete-author-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';

@@ -18,14 +18,14 @@
         <ng-container matColumnDef="royalty">
             <th mat-header-cell *matHeaderCellDef>Royalty %</th>
             <td mat-cell *matCellDef="let author">
-                {{ author.royaltyper | number: '1.2-2' }}%
+                {{ author.royaltyper }}%
             </td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let author" class="text-end">
-                <button mat-flat-button color="warn" disabled>
+                <button mat-flat-button color="warn" (click)="openDeleteDialog(author, '300ms', '150ms')">
                     Delete Author
                 </button>
             </td>
@@ -36,31 +36,42 @@
     </table>
 
     <!-- Add Author Form -->
-  <div class="mt-4 p-3 mat-elevation-z3 border rounded-3">
-    <form [formGroup]="newTitleAuthorForm" class="d-flex align-items-center gap-3">
+    <div class="mt-4 p-3 mat-elevation-z3 border rounded-3">
+        <form [formGroup]="newTitleAuthorForm" class="d-flex align-items-center gap-3">
 
-        <mat-form-field appearance="outline" class="flex-grow-1">
-            <mat-label>Select Author</mat-label>
-            <mat-select formControlName="au_id">
-                <mat-option *ngFor="let author of availableAuthors" [value]="author.au_id">
-                    {{ author.au_fname }} {{ author.au_lname }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field appearance="outline" class="flex-grow-1">
+                <mat-label>Select Author</mat-label>
+                <mat-select formControlName="au_id">
+                    <mat-option *ngFor="let author of availableAuthors" [value]="author.au_id">
+                        {{ author.au_fname }} {{ author.au_lname }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field appearance="outline" class="col-2">
-            <mat-label>Order</mat-label>
-            <input matInput formControlName="au_ord" readonly />
-        </mat-form-field>
+            <mat-form-field appearance="outline" class="col-2">
+                <mat-label>Order</mat-label>
+                <input matInput formControlName="au_ord" readonly />
+            </mat-form-field>
 
-        <mat-form-field appearance="outline" class="col-2">
-            <mat-label>Royalty %</mat-label>
-            <input matInput type="number" formControlName="royaltyper" />
-        </mat-form-field>
+            <mat-form-field appearance="outline" class="col-3">
+                <mat-label>Royalty %</mat-label>
+                <input matInput type="number" formControlName="royaltyper" />
+                <mat-error *ngIf="newTitleAuthorForm.get('royaltyper')?.hasError('min')">
+                    Value must be at least 0.
+                </mat-error>
+                <mat-error *ngIf="newTitleAuthorForm.get('royaltyper')?.hasError('max')">
+                    Value cannot exceed 100.
+                </mat-error>
+                <mat-error *ngIf="newTitleAuthorForm.get('royaltyper')?.hasError('pattern')">
+                    Only Integer allowed.
+                </mat-error>
+            </mat-form-field>
 
-        <button mat-flat-button color="primary" (click)="onAddButtonClick()">
-            Add Author
-        </button>
-    </form>
-  </div>
+            <div class="ms-auto">
+                <button mat-fab extended color="primary" (click)="addTitleAuthor()" [disabled]="newTitleAuthorForm.invalid">
+                    Add Author
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
