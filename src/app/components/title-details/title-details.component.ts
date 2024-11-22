@@ -77,7 +77,7 @@ export class TitleDetailsComponent implements OnInit {
         titleData.pubdate = new Date(titleData.pubdate);
       }
 
-      this.titleForm.patchValue(titleData)
+      this.titleForm.reset(titleData);
     })
   }
 
@@ -88,7 +88,7 @@ export class TitleDetailsComponent implements OnInit {
   }
 
   discardChanges(): void {
-    this.getTitleDetail()
+    this.getTitleDetail();
   }
 
   saveChanges(): void {
@@ -111,6 +111,7 @@ export class TitleDetailsComponent implements OnInit {
       this.http.put(`title/${this.titleId}/update`, formattedData).subscribe({
         next: (response) => {
           this.modSuccess = true;
+          this.getTitleDetail();
         },
         error: (error) => {
           console.error('Error saving data:', error);
