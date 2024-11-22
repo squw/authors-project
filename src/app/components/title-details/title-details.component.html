@@ -2,9 +2,15 @@
     <span class="text-black">
         Book Details: {{ titleForm.get('title')?.value }}
     </span>
+
+    <span class="flex-grow-1"></span>
+
+    <span class="text-black">
+        Sales Count: {{ titleForm.get('sales_count')?.value }}
+    </span>
 </mat-toolbar>
 
-<form [formGroup]="titleForm">
+<form [formGroup]="titleForm" (ngSubmit)="saveChanges()">
     <div class="container-md p-3">
         <div class="row">
             <div class="col-sm-4">
@@ -70,16 +76,13 @@
                 <h5>Publisher:</h5>
             </div>
             <div class="col-sm-8">
-                <input type="text" formControlName="pub_name" class="form-control" />
-                <div *ngIf="titleForm.get('pub_name')?.invalid && titleForm.get('pub_name')?.touched"
-                    class="text-danger">
-                    <small *ngIf="titleForm.get('pub_name')?.errors?.['maxlength']">
-                        Max Length Exceeded
-                    </small>
-                    <small *ngIf="titleForm.get('pub_name')?.errors?.['noInvalidPatterns']">
-                        Invalid String Input, please remove URLs and comment symbols
-                    </small>
-                </div>
+                <select formControlName="pub_id" class="form-select">
+                    <option value="" disabled>Select a publisher</option>
+                    <option *ngFor="let publisher of allPublishers" [value]="publisher.pub_id">
+                        {{ publisher.pub_name }}
+                    </option>
+                </select>
+                
             </div>
         </div>
 
@@ -124,8 +127,13 @@
                 <h5>Royalty:</h5>
             </div>
             <div class="col-sm-8">
-                <!--  need royalty component  -->
                 <input type="text" formControlName="royalty" class="form-control" />
+                <small *ngIf="titleForm.get('royalty')?.errors?.['pattern']">
+                    Invalid Advance Format, Positive Integer Only
+                </small>
+                <small *ngIf="titleForm.get('royalty')?.errors?.['min']">
+                    Royalty Cannot Be Negative
+                </small>
             </div>
         </div>
 
@@ -134,7 +142,13 @@
                 <h5>Year-to-Date Sales:</h5>
             </div>
             <div class="col-sm-8">
-                <input type="text" formControlName="ytd_sales" class="form-control" readonly />
+                <input type="text" formControlName="ytd_sales" class="form-control"/>
+                <small *ngIf="titleForm.get('ytd_sales')?.errors?.['pattern']">
+                    Invalid Advance Format, Positive Integer Only
+                </small>
+                <small *ngIf="titleForm.get('ytd_sales')?.errors?.['min']">
+                    Year-To-Date Sales Cannot Be Negative
+                </small>
             </div>
         </div>
 
@@ -178,6 +192,21 @@
             <button mat-button type="button" (click)="discardChanges()" color="warn">
                 Discard Changes
             </button>
+        </div>
+
+        <div class="col-2">
+            <button mat-raised-button type="submit" color="primary" [disabled]="!titleForm.valid || titleForm.pristine">
+                Save Changes
+            </button>
+        </div>
+
+        <div class="col-10">
+            <small *ngIf="modSuccess === true" class="text-success">
+                Changes saved successfully!
+            </small>
+            <small *ngIf="modSuccess === false" class="text-danger">
+                Failed saving changes.
+            </small>
         </div>
     </div>
 </form>

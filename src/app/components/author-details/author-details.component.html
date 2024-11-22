@@ -163,7 +163,7 @@
             </button>
         </div>
         <div class="col-2">
-            <button mat-raised-button type="submit" color="primary" [disabled]="!authorForm.valid">
+            <button mat-raised-button type="submit" color="primary" [disabled]="!authorForm.valid || authorForm.pristine">
                 Save Changes
             </button>
         </div>
