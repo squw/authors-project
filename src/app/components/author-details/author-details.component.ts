@@ -52,7 +52,8 @@ export class AuthorDetailsComponent implements OnInit {
 
   getAuthDetail(): void {
     this.http.get<AuthorResponseModelSingular>(`author/${this.authorId}`).subscribe((res: AuthorResponseModelSingular) => {
-      this.authorForm.patchValue(res.Data);
+      const authorData = res.Data
+      this.authorForm.reset(authorData);
     })
   }
 
@@ -68,6 +69,7 @@ export class AuthorDetailsComponent implements OnInit {
       this.http.put<AuthorResponseModelSingular>(`author/${this.authorId}/update`, this.authorForm.value).subscribe({
         next: (response) => {
           this.modSuccess = true;
+          this.getAuthDetail();
         },
         error: (error) => {
           console.error('Error saving data:', error);
