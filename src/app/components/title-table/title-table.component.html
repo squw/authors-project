@@ -16,7 +16,7 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let title" class="text-end">
-                <button mat-flat-button color="warn">
+                <button mat-flat-button color="warn" (click)="openDeleteDialog(title, '300ms', '150ms')"> 
                     Delete Entry
                 </button>
             </td>

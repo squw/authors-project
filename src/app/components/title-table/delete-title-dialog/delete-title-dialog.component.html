@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Delete Title</h2>
+<mat-dialog-content>
+  <ng-container *ngIf="exists; else confirmDelete">
+    <span class="warning">This title cannot be deleted because they have already sold copies.</span>
+  </ng-container>
+  <ng-template #confirmDelete>
+    Would you like to delete title {{ title.title }}?
+  </ng-template>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">No</button>
+  <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial [disabled]="exists">Delete</button>
+</mat-dialog-actions>
