@@ -51,3 +51,10 @@ export interface TitleAuthor {
     au_ord: number;
     royaltyper: number;
 }
+
+
+export interface TitleResponseModelBool {
+    Message: string;
+    Result: boolean;
+    Exists: boolean;
+}

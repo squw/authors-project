@@ -4,6 +4,7 @@ import { CreateAuthorComponent } from './components/create-author/create-author.
 import { AuthorTableComponent } from './components/author-table/author-table.component';
 import { TitleTableComponent } from './components/title-table/title-table.component';
 import { TitleDetailsComponent } from './components/title-details/title-details.component';
+import { CreateTitleComponent } from './components/create-title/create-title.component';
 
 export const routes: Routes = [
     {
@@ -18,6 +19,7 @@ export const routes: Routes = [
         path: 'title',
         children: [
             { path: '', component: TitleTableComponent },
+            { path: 'create-title', component: CreateTitleComponent },
             { path: ':id', component: TitleDetailsComponent }
         ]
     }
