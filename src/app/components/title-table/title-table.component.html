@@ -1,5 +1,16 @@
 <div class="container-md p-3 rounded-3 shadow-sm border mt-3">
-    <table mat-table [dataSource]="titlesList" class="mat-elevation-z8 rounded-3 overflow-hidden">
+
+    <div class="row mb-3">
+        <div class="col">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Search Titles</mat-label>
+                <input matInput [(ngModel)]="searchTerm" placeholder="Type to search" (input)="applyFilter()" />
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <table mat-table [dataSource]="filteredTitlesList" class="mat-elevation-z8 rounded-3 overflow-hidden">
 
 
         <ng-container matColumnDef="title">
