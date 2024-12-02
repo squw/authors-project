@@ -1,16 +1,16 @@
 {
     "/author": {
-        "target": "http://localhost:8080",
+        "target": "http://backend:8080",
         "secure": false,
         "changeOrigin": true
     },
     "/title": {
-        "target": "http://localhost:8080",
+        "target": "http://backend:8080",
         "secure": false,
         "changeOrigin": true
     },
     "/publisher": {
-        "target": "http://localhost:8080",
+        "target": "http://backend:8080",
         "secure": false,
         "changeOrigin": true
     }

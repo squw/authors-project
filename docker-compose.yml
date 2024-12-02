@@ -1,0 +1,24 @@
+services:
+  backend:
+    image: 6268f8e72511
+    container_name: backend-container
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    env_file:
+      - .env
+
+  frontend:
+    image: 848457d59ef3
+    container_name: frontend-container
+    ports:
+      - "4200:4200"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+networks:
+  app-network:
+    driver: bridge
