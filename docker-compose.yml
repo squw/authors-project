@@ -1,6 +1,6 @@
 services:
   backend:
-    image: 6268f8e72511
+    image: quwsun/author_api_node:latest
     container_name: backend-container
     ports:
       - "8080:8080"
@@ -10,7 +10,7 @@ services:
       - .env
 
   frontend:
-    image: 848457d59ef3
+    image: squwsun/author_front_end:latest
     container_name: frontend-container
     ports:
       - "4200:4200"
