@@ -82,7 +82,7 @@
                         {{ publisher.pub_name }}
                     </option>
                 </select>
-                
+
             </div>
         </div>
 
@@ -128,12 +128,15 @@
             </div>
             <div class="col-sm-8">
                 <input type="text" formControlName="royalty" class="form-control" />
-                <small *ngIf="titleForm.get('royalty')?.errors?.['pattern']">
-                    Invalid Advance Format, Positive Integer Only
-                </small>
-                <small *ngIf="titleForm.get('royalty')?.errors?.['min']">
-                    Royalty Cannot Be Negative
-                </small>
+                <div *ngIf="titleForm.get('royalty')?.invalid && titleForm.get('royalty')?.touched" class="text-danger">
+                    <small *ngIf="titleForm.get('royalty')?.errors?.['pattern']">
+                        Invalid Advance Format, Positive Integer Only
+                    </small>
+                    <small *ngIf="titleForm.get('royalty')?.errors?.['min']">
+                        Royalty Cannot Be Negative
+                    </small>
+                </div>
+
             </div>
         </div>
 
@@ -142,13 +145,17 @@
                 <h5>Year-to-Date Sales:</h5>
             </div>
             <div class="col-sm-8">
-                <input type="text" formControlName="ytd_sales" class="form-control"/>
-                <small *ngIf="titleForm.get('ytd_sales')?.errors?.['pattern']">
-                    Invalid Advance Format, Positive Integer Only
-                </small>
-                <small *ngIf="titleForm.get('ytd_sales')?.errors?.['min']">
-                    Year-To-Date Sales Cannot Be Negative
-                </small>
+                <input type="text" formControlName="ytd_sales" class="form-control" />
+                <div *ngIf="titleForm.get('ytd_sales')?.invalid && titleForm.get('ytd_sales')?.touched"
+                    class="text-danger">
+                    <small *ngIf="titleForm.get('ytd_sales')?.errors?.['pattern']">
+                        Invalid Advance Format, Positive Integer Only
+                    </small>
+                    <small *ngIf="titleForm.get('ytd_sales')?.errors?.['min']">
+                        Year-To-Date Sales Cannot Be Negative
+                    </small>
+                </div>
+
             </div>
         </div>
 

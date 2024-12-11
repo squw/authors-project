@@ -1,6 +1,9 @@
 services:
   backend:
-    image: quwsun/author_api_node:latest
+    build:
+      context: /home/squw/authors-project-api-nodejs-express
+      dockerfile: Dockerfile
+    image: squwsun/author_api_node:latest
     container_name: backend-container
     ports:
       - "8080:8080"
@@ -10,6 +13,9 @@ services:
       - .env
 
   frontend:
+    build:
+      context: /home/squw/authors-project
+      dockerfile: Dockerfile
     image: squwsun/author_front_end:latest
     container_name: frontend-container
     ports:
