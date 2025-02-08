@@ -1,7 +1,32 @@
 # AuthorsProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+![Author Table](image.png)
+![Delete Author Disabled](image-1.png)
+![Delete Author Enabled](image-2.png)
+![Author Details](image-3.png)
+![Author Details Data Validation](image-4.png)
+![Author Create](image-6.png)
+![Author Create Details](image-7.png)
+![Titles Table](image-5.png)
+![Title Details](image-8.png)
 
+
+
+# How To Run
+
+To run this, first build docker containers:
+```
+docker compose build
+```
+
+Then run the containers:
+```
+Docker compose up
+```
+or (for detatched run)
+```
+docker compose up -d
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -21,7 +46,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
