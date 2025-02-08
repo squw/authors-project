@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: author_api_node:latest
+    image: squwsun/author_api_node:latest
     container_name: backend-container
     ports:
       - "8080:8080"
@@ -14,7 +14,7 @@ services:
       - /home/squwsun/Documents/api_learn/nodejs_express:/app  # Mount the backend code directory
 
   frontend:
-    image: author_front_end:latest
+    image: squwsun/author_front_end:latest
     container_name: frontend-container
     ports:
       - "4200:4200"
