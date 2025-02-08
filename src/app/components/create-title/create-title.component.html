@@ -22,7 +22,7 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <h5>Title:</h5>
+                <h5>Title: <span class="text-danger">*</span></h5>
             </div>
             <div class="col-sm-8">
                 <input type="text" formControlName="title" class="form-control" />
@@ -42,7 +42,7 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <h5>Type:</h5>
+                <h5>Type: <span class="text-danger">*</span></h5>
             </div>
             <div class="col-sm-8">
                 <select formControlName="type" class="form-select">
@@ -73,7 +73,6 @@
                         {{ publisher.pub_name }}
                     </option>
                 </select>
-                
             </div>
         </div>
 
@@ -111,8 +110,6 @@
             </div>
         </div>
 
-
-
         <div class="row">
             <div class="col-sm-4">
                 <h5>Royalty:</h5>
@@ -127,7 +124,6 @@
                         Royalty Cannot Be Negative
                     </small>
                 </div>
-                
             </div>
         </div>
 
@@ -145,7 +141,6 @@
                         Year-To-Date Sales Cannot Be Negative
                     </small>
                 </div>
-                
             </div>
         </div>
 
@@ -168,7 +163,7 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <h5>Publication Date:</h5>
+                <h5>Publication Date: <span class="text-danger">*</span></h5>
             </div>
             <div class="col-sm-8">
                 <mat-form-field appearance="outline" class="w-100">
@@ -179,10 +174,7 @@
                 </mat-form-field>
             </div>
         </div>
-
     </div>
-
-
 
     <div class="row p-5">
         <div class="col-2">

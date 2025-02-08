@@ -1,6 +1,8 @@
+version: '3.8'
+
 services:
   backend:
-    image: quwsun/author_api_node:latest
+    image: author_api_node:latest
     container_name: backend-container
     ports:
       - "8080:8080"
@@ -8,9 +10,11 @@ services:
       - app-network
     env_file:
       - .env
+    volumes:
+      - /home/squwsun/Documents/api_learn/nodejs_express:/app  # Mount the backend code directory
 
   frontend:
-    image: squwsun/author_front_end:latest
+    image: author_front_end:latest
     container_name: frontend-container
     ports:
       - "4200:4200"
@@ -18,6 +22,8 @@ services:
       - app-network
     depends_on:
       - backend
+    volumes:
+      - /home/squwsun/Documents/angular_learn/authors-project:/app  # Mount the frontend code directory
 
 networks:
   app-network:
